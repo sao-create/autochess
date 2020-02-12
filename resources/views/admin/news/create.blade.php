@@ -10,7 +10,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
+                <h1>見出し１</h1>
                 <h2>ニュース新規作成</h2>
+                <h3>見出し３</h3>
+                <ul>
+                    <li>リスト</li>
+                    <li>リスト</li>
+                    <li>リスト</li>
+                </ul>
+
+
             </div>
         </div>
     </div>
