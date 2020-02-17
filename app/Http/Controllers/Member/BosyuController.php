@@ -12,4 +12,20 @@ class BosyuController extends Controller
     {
         return view('member.bosyu.create');
     }
+    
+    public function create()
+    {
+        return redirect('member/bosyu/create');
+    }
+
+    public function edit()
+    {
+        return view('member.bosyu.edit');
+    }
+
+    public function update()
+    {
+        return redirect('member/bosyu/edit');
+    }
+  
 }

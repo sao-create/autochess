@@ -12,7 +12,7 @@ class CaptureController extends Controller
     {
         return view('member.capture.create');
     }
-
+    
     public function create()
     {
         return redirect('member/capture/create');
