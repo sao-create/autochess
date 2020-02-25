@@ -49336,6 +49336,25 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
+}); //member/bosyu/create
+
+var $children = $('.children');
+var original = $children.html();
+$('.parent').change(function () {
+  var val1 = $(this).val();
+  $children.html(original).find('option').each(function () {
+    var val2 = $(this).data('val');
+
+    if (val1 != val2) {
+      $(this).not(':first-child').remove();
+    }
+  });
+
+  if ($(this).val() == "") {
+    $children.attr('disabled', 'disabled');
+  } else {
+    $children.removeAttr('disabled');
+  }
 });
 
 /***/ }),
@@ -49454,17 +49473,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/admin.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/admin.scss ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49485,7 +49493,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! /Users/monshn/Desktop/autochess/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/monshn/Desktop/autochess/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/monshn/Desktop/autochess/resources/sass/admin.scss */"./resources/sass/admin.scss");
+!(function webpackMissingModule() { var e = new Error("Cannot find module '/Users/monshn/Desktop/autochess/resources/sass/admin.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })

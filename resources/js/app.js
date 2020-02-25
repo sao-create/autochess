@@ -30,3 +30,58 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+//member/bosyu/create
+var $children = $('.children');
+var original = $children.html();
+
+$('.parent').change(function () {
+
+    var val1 = $(this).val();
+
+    $children.html(original).find('option').each(function () {
+        var val2 = $(this).data('val');
+        if (val1 != val2) {
+            $(this).not(':first-child').remove();
+        }
+    });
+
+    if ($(this).val() == "") {
+        $children.attr('disabled', 'disabled');
+    } else {
+        $children.removeAttr('disabled');
+    }
+
+});
+
+$(window).bind('scroll', function () {
+    previousTop: 0;
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $('header').addClass('visible');
+    } else {
+        $('header').removeClass('visible');
+    }
+    this.previousTop = currentTop;
+});
+
+/*ヘッダー固定---------------------------*/
+$(function () {
+    var $win = $(window),
+        $main = $('main'),
+        $nav = $('nav'),
+        navHeight = $nav.outerHeight(),
+        navPos = $nav.offset().top,
+        fixedClass = 'is-fixed';
+
+    $win.on('load scroll', function () {
+        var value = $(this).scrollTop();
+        if (value > navPos) {
+            $nav.addClass(fixedClass);
+            $main.css('margin-top', navHeight);
+        } else {
+            $nav.removeClass(fixedClass);
+            $main.css('margin-top', '0');
+        }
+    });
+});

@@ -1,8 +1,29 @@
 body {
+  margin: 0; width: 100%; height: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #fff;
-  color: #000;
+  background-color: white;
+  color: black;
+}
+
+body,
+#wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+}
+
+.main {
+  padding-bottom: 100px;
 }
 
 .navbar-laravel {
@@ -39,131 +60,198 @@ body {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-/*member/bosyu/create------------------*/
-body{
-  background:radial-gradient(#6f2d9c, #391353);
-  background-size:4px 4px;
-  perspective: 400px;
+/*nav------------------------*/
+
+header{
   width: 100%;
-  height: 600px;
-}
-.dropholder{
-  width: 322px;
-  height: 60px;
-  margin:100px auto;
-  padding:0 0 0 20px;
-  border-radius:10px;
-  font:18px arial;
-  color: #fff;
-  position: relative;
-  box-sizing:border-box;
-  border:1px solid #9b0db9;
-  animation: move 3s ease-in-out infinite;
-  position: relative;
-}
-.dropholder:hover, .dropholder:hover:after{
-  animation-play-state:paused;
-}
-.dropholder:after{
-  content:"";
-  position: absolute;
-  width: 250px;
-  height: 5px;
-  background:rgba(0,0,0, 0);
-  display: block;
-  top:100px;
-  left:37px;
-  margin: auto;
-  border-radius:50%;
-  box-shadow:0 15px 10px rgba(0,0,0, 0.4);
-  animation: moveShadow 3s ease-in-out infinite;
-}
-p{
   float: left;
-  line-height:60px;
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 5px rgba(0, 0, 0,.3);
+  left: 0;
+  transition:500ms;
+  -ms-transform: translate(0px,-100px);
+  -webkit-transform:translate(0px,-100px);
+  -moz-transform:translate(0px,-100px);
+  transform: translate(0px,-100px);
+  z-index:9999;
 }
-.dropdown > p{
-  font-size:16px;
-}
-.dropdown, .dropholder{
-  background:linear-gradient(#da4df8 ,#9b0db9);
-}
-.dropdown{
-  margin-left:20px;
-  float: left;
-  width: 208px;
-  padding:0 0 0 20px;
-  border-radius:0 10px 10px 0;
-  cursor: pointer;
-  height:58px;
-  border-left:1px solid #da4df8;
-  position: relative;
-}
-.dropdown:hover{
-  background:linear-gradient(#da4df8 ,#b11cd0);
-}
-.dropdown:after{
-  content:"▾";
-  font-size: 18px;
-  position: absolute;
-  right:20px;
-  top:18px;
-  display: block;
+.visible{
+  -ms-transform: translate(0px,0px);
+  -moz-transform: translate(0px,0px);
+  -webkit-transform: translate(0px,0px);
+  transform: translate(0px,0px);
 }
 
-.menu{
-  position: absolute;
-  right:0;
-  top:70px;
-  width: 228px;
-  cursor: pointer;
-  opacity:0;
-  transform-style: preserve-3d;
-  transform:rotatey(180deg) rotateX(5deg) translatey(100px);
-  backface-visibility: hidden;
-  background:linear-gradient(#4dc2f8 ,#0d82b9);
-  border:2px solid #0d82b9;
-  border-radius:10px;
-  transition:all 0.8s;
-  z-index:5;
-  overflow:hidden;
-}
-.menu li{
-  padding: 10px 10px;
-  border-bottom:1px dotted #fff;
-  color:#e8f8ff; 
-  transition:all 0.3s;
-}
-.menu li:hover{
-  background:#61ccfd;
-  padding-left:20px;
-}
-.menu li:last-child{
-  border:none;
-}
+.nav{
+  float: right;
 
-.showMenu{
-   opacity:1;
-  transform:rotateX(0deg) translatey(0px);
+  text-align: center;
 }
-li > i{
+.nav li{
   float: left;
-  padding-top: 3px;
-  padding-right: 8px;
-}
-p > i{
  position: relative;
- top:2px;
 }
-i{
-  opacity: 0.7;
-}
-@keyframes move{
-  0%, 100%{transform:translateY(-10px);}
-  50%{transform:translateY(0);}
+.nav li a{
+ float:left;
+  line-height: 100px;
+  color: #101010;
+  position: relative;
+  font-size: 16px;
+  height: 100px;
+  font-weight: 400;
+  overflow: hidden;
+  transition:500ms;
+ padding:0 25px;
+ font-family: 'Open Sans', sans-serif;
+ z-index:1;
 }
 
-@keyframes moveShadow{
-  0%,100%{transform:translateY(10px);opacity:0.4;}
-  50%{transform:translateY(0);opacity:1;}
+.nav li:after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  transition:500ms;
 }
+.nav li:hover:after{
+  height: 100%;
+  top: 0;
+  background:rgba(0, 5, 8, 1);
+}
+.nav li.active:after{
+  height: 100%;
+  top: 0;
+  background:rgba(150, 39, 39, 1);
+}
+
+.nav li:hover a,.nav li.active a{
+  color: #fff;
+
+}
+
+.is-fixed  {
+  position:  fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  background-color: rgba(255,255,255,0.9);
+  -webkit-transition: all .4s ease 0s,background .6s ease .2s;
+  transition: all .4s ease 0s,background .6s ease .2s;
+  -webkit-overflow-scrolling: touch;
+  height: 100px;
+}
+
+
+/*グラデーション-------------*/
+body{
+ min-height:2500px;
+ background: 
+  -webkit-linear-gradient(
+     hsla(0, 0%, 0%, 1),
+     hsla(0, 0%, 100%, 0.5)
+  );
+ background: 
+  -moz-linear-gradient(
+     hsla(0, 0%, 0%, 1),
+     hsla(0, 0%, 100%, 0.5)
+  );
+ background: 
+  -o-linear-gradient(
+     hsla(0, 0%, 0%, 1),
+     hsla(0, 0%, 100%, 0.5)
+  );
+ background: 
+  linear-gradient(
+     hsla(0, 0%, 0%, 1),
+     hsla(0, 0%, 100%, 0.5)
+  );
+}
+*,
+*:after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,800,400&subset=latin,latin-ext);
+
+/*画像位置-------------*/
+.parent {
+  
+  position: relative;
+}
+
+.parent h2{
+  position: absolute;
+  color: white;
+  text-shadow: 2px  2px 5px black;
+  font-weight: bold;
+  font-size: 2em;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  margin:0;
+  padding:0;
+}
+
+.parent p {
+  position: absolute;
+  color: white;
+  text-shadow: 2px  2px 5px black;
+  font-weight: bold;
+  font-size: 25px;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  top: 60%;
+  left: 50%;
+  margin:10px;
+  padding:0;
+  border: solid white 2px; /*線で囲う*/
+  padding: 7px;/*文字と線の間の余白*/
+}
+
+.parent img {
+  width: 100%;
+}
+
+
+
+
+
+footer{
+  /*footerの装飾*/
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+
+  position: fixed;
+  bottom: 0; 
+  margin-top: auto;
+}
+
+footer p {
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+}
+
+
+
+
+

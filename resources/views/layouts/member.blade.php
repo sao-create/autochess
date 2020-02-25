@@ -12,6 +12,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
         <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet" type="text/css">
         
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
