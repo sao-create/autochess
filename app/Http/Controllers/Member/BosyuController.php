@@ -28,4 +28,8 @@ class BosyuController extends Controller
         return redirect('member/bosyu/edit');
     }
   
+    public function index()
+    {
+        return view('member/bosyu/index');
+    }
 }

@@ -27,4 +27,9 @@ class CaptureController extends Controller
     {
         return redirect('member/capture/edit');
     }
+
+    public function index()
+    {
+        return view('member/capture/index');
+    }
 }

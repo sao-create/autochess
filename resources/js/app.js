@@ -85,3 +85,22 @@ $(function () {
         }
     });
 });
+
+//スクロール操作するたびに起動
+$window.on('scroll', function () {
+    //スクロール量を取得
+    $scrollTopDistance = $(window).scrollTop();
+    //もしスクロール量がヘッダーの上回ったら
+    if ($scrollTopDistance >= headerHeight) {
+        //クラスを追加する
+        header.addClass('is_scroll');
+        logo.addClass('is_scroll');
+        headerNav.addClass('is_scroll');
+        //もしスクロール量がヘッダーの高さを下回ったら。
+    } else if ($scrollTopDistance <= headerHeight) {
+        //クラスを除去する
+        header.removeClass('is_scroll');
+        logo.removeClass('is_scroll');
+        headerNav.removeClass('is_scroll');
+    }
+});

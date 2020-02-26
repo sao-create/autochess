@@ -21,8 +21,9 @@ Route::group(['prefix' => 'member'], function() {
     Route::post('bosyu/create', 'Member\BosyuController@create');
     Route::get('bosyu/edit', 'Member\BosyuController@edit');
     Route::post('bosyu/edit', 'Member\BosyuController@update');
-    Route::get('bosyu', 'Member\BosyuController@index');
+    Route::get('bosyu/index', 'Member\BosyuController@index');
     Route::get('bosyu/delete', 'Member\BosyuController@delete');
+    
 });
 
 Route::group(['prefix' => 'member'], function() {
